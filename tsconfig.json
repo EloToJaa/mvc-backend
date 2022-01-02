@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "outDir": "./dist/",
+      "outDir": "./dev-wai/src/web/",
       "sourceMap": true,
       "noImplicitAny": true,
       "module": "es6",
