@@ -22,7 +22,7 @@ module.exports = {
   },
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist', 'js'),
+    path: path.resolve(__dirname, 'dev-wai', 'src', 'web', 'static', 'js'),
   },
   optimization: {
     usedExports: true,

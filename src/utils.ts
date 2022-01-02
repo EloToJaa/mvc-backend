@@ -1,7 +1,8 @@
 import Types from "./types";
 
 export const redirect = (path: string) => {
-	const newPath = window.location.pathname + "/../" + path + ".html";
+	const newPath = window.location.pathname + "/../" + path;
+	console.log(newPath);
 	window.location.replace(newPath);
 };
 

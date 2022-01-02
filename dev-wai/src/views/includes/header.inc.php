@@ -14,10 +14,10 @@
             <li>
                 <a href="login/start.html">Logowanie</a>
                 <ul>
-                    <li> <a href="login/difficulty/easy.html">Łatwy</a> </li>
-                    <li> <a href="login/difficulty/medium.html">Średni</a> </li>
-                    <li> <a href="login/difficulty/hard.html">Trudny</a> </li>
-                    <li> <a href="login/difficulty/impossible.html">Bardzo Trudny</a> </li>
+                    <li> <a href="static/login/difficulty/easy.html">Łatwy</a> </li>
+                    <li> <a href="static/login/difficulty/medium.html">Średni</a> </li>
+                    <li> <a href="static/login/difficulty/hard.html">Trudny</a> </li>
+                    <li> <a href="static/login/difficulty/impossible.html">Bardzo Trudny</a> </li>
                 </ul>
             </li>
             <li> <a href="bug.html">Zgłoś błąd</a> </li>

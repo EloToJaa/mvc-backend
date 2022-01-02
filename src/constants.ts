@@ -7,7 +7,7 @@ namespace Constants {
 	export enum Webpage {
 		Home = "index",
 		Bug = "bug",
-		Login = "login",
+		Login = "task",
 		Start = "start",
 		Easy = "easy",
 		Medium = "medium",
