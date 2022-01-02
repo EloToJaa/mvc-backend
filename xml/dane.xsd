@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+
+  <xs:element name="hipertext">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="data" type="dataType"></xs:element>
+        <xs:element name="images" type="imagesType"></xs:element>
+        <xs:element name="hacking" type="hackingType"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="dataType">
+    <xs:sequence>
+      <xs:element name="segment" type="segmentType" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="segmentType">
+    <xs:sequence>
+      <xs:element ref="title"></xs:element>
+      <xs:element name="information" type="informationType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      <xs:element name="reference" type="referenceType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="positiveInt">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"></xs:minInclusive>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="codeType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"></xs:minInclusive>
+      <xs:maxInclusive value="3"></xs:maxInclusive>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="title">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="2"></xs:minLength>
+        <xs:maxLength value="500"></xs:maxLength>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:complexType name="informationType">
+    <xs:sequence>
+      <xs:element ref="text"></xs:element>
+      <xs:element name="problem" type="problemType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="referenceType">
+    <xs:sequence>
+      <xs:element ref="text"></xs:element>
+    </xs:sequence>
+    <xs:attribute ref="src" use="required"></xs:attribute>
+  </xs:complexType>
+
+  <xs:attribute name="src">
+    <xs:simpleType>
+      <xs:restriction base="xs:anyURI">
+        <xs:minLength value="5"></xs:minLength>
+        <xs:maxLength value="200"></xs:maxLength>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <xs:element name="text">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"></xs:minLength>
+        <xs:maxLength value="2000"></xs:maxLength>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:complexType name="problemType">
+    <xs:sequence>
+      <xs:element ref="title"></xs:element>
+      <xs:element name="subproblem" type="subproblemType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="subproblemType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"></xs:minLength>
+      <xs:maxLength value="200"></xs:maxLength>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="imagesType">
+    <xs:sequence>
+      <xs:element name="image" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute ref="src" use="required"></xs:attribute>
+          <xs:attribute name="type" type="typeType" use="required"></xs:attribute>
+          <xs:attribute name="name" type="nameType" use="required"></xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="typeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="svg"></xs:enumeration>
+      <xs:enumeration value="jpg"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nameType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"></xs:minLength>
+      <xs:maxLength value="30"></xs:maxLength>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:group name="hackingGroup">
+    <xs:sequence>
+      <xs:element name="help" type="helpType"></xs:element>
+      <xs:element name="wordlist" type="wordlistType"></xs:element>
+      <xs:element name="description" type="descriptionType" minOccurs="4" maxOccurs="4"></xs:element>
+    </xs:sequence>
+  </xs:group>
+
+  <xs:complexType name="hackingType">
+    <xs:group ref="hackingGroup"></xs:group>
+  </xs:complexType>
+
+  <xs:complexType name="helpType">
+    <xs:sequence>
+      <xs:element ref="title"></xs:element>
+      <xs:element ref="text"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="wordlistType">
+    <xs:attribute ref="src"></xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="descriptionType">
+    <xs:sequence>
+      <xs:element name="encryption" type="encryptionType"></xs:element>
+      <xs:element name="results" type="resultsType"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="difficulty">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="easy"></xs:enumeration>
+          <xs:enumeration value="medium"></xs:enumeration>
+          <xs:enumeration value="hard"></xs:enumeration>
+          <xs:enumeration value="impossible"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="encryptionType">
+    <xs:attribute name="kind" type="kindType"></xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="kindType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="rot|custom"></xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="messagesType">
+    <xs:sequence>
+      <xs:element name="message" type="messageType" minOccurs="2" maxOccurs="4"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="resultsType">
+    <xs:complexContent>
+      <xs:extension base="messagesType">
+        <xs:sequence>
+          <xs:element name="codes" type="codesType"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="messageType">
+    <xs:sequence>
+      <xs:element name="content" type="contentType"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="success" type="xs:boolean"></xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="codesType">
+    <xs:restriction>
+      <xs:simpleType>
+        <xs:list itemType="codeType"></xs:list>
+      </xs:simpleType>
+      <xs:minLength value="2"></xs:minLength>
+      <xs:maxLength value="4"></xs:maxLength>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="msgType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="10"></xs:minLength>
+      <xs:maxLength value="50"></xs:maxLength>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="contentType">
+    <xs:union memberTypes="codeType msgType"></xs:union>
+  </xs:simpleType>
+
+</xs:schema>

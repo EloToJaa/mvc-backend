@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hipertext SYSTEM "dane.dtd">
+<hipertext xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="dane.xsd">
+
+	<data>
+		<segment id="s0">
+			<title>
+				&name;
+			</title>
+			<information>
+				<text>
+					&name; – osoba wyszukująca i ewentualnie wykorzystująca dziury bezpieczeństwa w oprogramowaniu komputerowym, dające dostęp do zabezpieczonych zasobów. W 2011 hakerzy poznali 174 mln rekordów w 855 atakach.
+				</text>
+			</information>
+			<information>
+				<text>
+					Osoby łamiące zabezpieczenia nazywa się też crackerami. Hakerzy skupieni w społeczności hakerskiej używają terminu cracker dla odróżnienia siebie od przestępców komputerowych; z kolei crackerzy włamywaczy sieciowych zwą hakerami. Zgodnie z szacunkami firmy McAfee z 2018 r. w wyniku cyberprzestępczości gospodarka traci rocznie 600 miliardów dolarów.
+				</text>
+			</information>
+		</segment>
+		<segment id="s1">
+			<title>
+				Umiejętności
+			</title>
+			<information>
+				<text>
+					Najwyższym poziomem umiejętności cechują się ci spośród hakerów lub crackerów, którzy opracowują nowe, nieznane dotąd metody ataków. Często jednak ataków dokonują osoby nieposiadające większej wiedzy o zabezpieczeniach i jedynie korzystające z gotowych narzędzi. Wśród osób związanych z bezpieczeństwem komputerowym funkcjonuje dla nich pejoratywne określenie script kiddies (skryptowe dzieciaki).
+				</text>
+			</information>
+			<information>
+				<text>
+					Autorzy internetowych robaków, wirusów oraz koni trojańskich często są nazywani w mediach hakerami. Ze względu na to, że działanie wirusów rozsyłanych e-mailem opiera się głównie na niskim poziomie wiedzy użytkowników i nieprzestrzeganiu podstawowych zasad bezpieczeństwa (a nie na włamywaniu), określenie „haker” bywa w ich przypadku kwestionowane. Podobne zastrzeżenia podnosi się wobec ludzi wykradających poufne dane nie przełamywaniem technicznych zabezpieczeń, lecz za pomocą inżynierii społecznej (np. metodą phishingu).
+				</text>
+			</information>
+			<information>
+				<text>
+					Szczególnym zainteresowaniem hakerów/crackerów cieszą się następujące zagadnienia:
+				</text>
+				<problem>
+					<title>
+						luki (dziury) w:
+					</title>
+					<subproblem>
+						systemach operacyjnych
+					</subproblem>
+					<subproblem>
+						programach
+					</subproblem>
+					<subproblem>
+						sieciach komputerowych (systemy zabezpieczeń)
+					</subproblem>
+					<subproblem>
+						urządzeniach (głównie podłączonych do sieci, ale również w telefonii)
+					</subproblem>
+					<subproblem>
+						systemach autoryzacji (kontrola dostępu do zasobów)
+					</subproblem>
+				</problem>
+				<problem>
+					<title>
+						(zdalne) przejmowanie kontroli nad danym systemem (zdobywanie uprawnień nadzorcy systemu – superużytkownika)
+					</title>
+				</problem>
+				<problem>
+					<title>
+						techniki (elektronicznego) kamuflażu oraz zacierania śladów (zobacz też: maskowanie operacyjne w wojsku)
+					</title>
+				</problem>
+				<problem>
+					<title>
+						zaawansowana, praktyczna znajomość technik agresji teleinformatycznej (np. sniffing, podszywanie się, cracking, tworzenie koni trojańskich, exploitów)
+					</title>
+				</problem>
+				<problem>
+					<title>
+						budowa i funkcjonowanie systemów operacyjnych, w szczególności jądra systemu operacyjnego
+					</title>
+				</problem>
+				<problem>
+					<title>
+						systemy Unix i Linux.
+					</title>
+				</problem>
+			</information>
+		</segment>
+		<segment id="s2">
+			<title>
+				Podział
+			</title>
+			<information>
+				<text>
+					Ze względu na stosowaną etykę wyróżnia się następujący podział hakerów zabezpieczeń:
+				</text>
+				<problem>
+					<title>
+						black hat (czarne kapelusze) – hakerzy działający na granicy lub poza granicami prawa. Znalezionych błędów albo nie publikują w ogóle, wykorzystując je w nielegalny sposób, albo publikują od razu w postaci gotowych programów, które mogą zostać użyte przez osoby o niższych umiejętnościach (np. script kiddies). Niektóre osoby kwestionują w tym przypadku użycie słowa „haker”, zastępując je wyrazem „cracker”.
+					</title>
+				</problem>
+				<problem>
+					<title>
+						white hat (białe kapelusze) – hakerzy działający zupełnie legalnie lub też starający się nie wyrządzać szkód. Odkryte przez siebie dziury w bezpieczeństwie zwykle podają w formie, w której mogą zostać łatwo załatane przez autorów oprogramowania, lecz trudnej do wykorzystania w celu zaszkodzenia komuś (zobacz: full disclosure). Wśród nich często się spotyka audytorów bezpieczeństwa.
+					</title>
+				</problem>
+				<problem>
+					<title>
+						grey hat, greyhat, gray hat (szare kapelusze) – hakerzy/crackerzy przyjmujący po części metody działania obu wyżej wymienionych grup
+					</title>
+				</problem>
+				<problem>
+					<title>
+						blue hat (niebieskie kapelusze) – hakerzy/crackerzy pochodzący spoza firm zajmujących się bezpieczeństwem, którzy zajmują się poszukiwaniem bugów w oprogramowaniu przed wypuszczeniem go na rynek.
+					</title>
+				</problem>
+			</information>
+			<information>
+				<text>
+					Określenie „kapelusze” pochodzi ze starych, czarno-białych westernów, w których czasem kolor kapelusza odróżniał dobrych od złych. Klasyfikacja ta nie przyjęła się szeroko i często wywołuje kontrowersje w środowisku informatycznym.
+				</text>
+			</information>
+		</segment>
+		<segment id="s3">
+			<title>
+				Cele
+			</title>
+			<information>
+				<text>
+					Hakerzy, włamywacze oraz crackerzy działają z różnych pobudek: dla niektórych jest to chęć zysku możliwego do uzyskania przy pomocy wykradzionych danych, dla innych uzyskanie rozgłosu i wywołanie zamieszania. Część z nich twierdzi, że włamania przyczyniają się do zwiększenia dbałości administratorów o zabezpieczenia. Ten argument odrzuca większość społeczeństwa informatycznego. Specjaliści wskazują, że włamywacz może dokonać szkód nawet mimowolnie, wskutek błędu lub niedostatecznej wiedzy.
+				</text>
+			</information>
+			<information>
+				<text>
+					Hakerzy z grupy „białych kapeluszy” starają się znaleźć potencjalne zagrożenia, zanim zostaną odkryte przez włamywaczy. Niektórzy spośród „czarnych kapeluszy” uważają jednak, że wobec opieszałości producentów oprogramowania w publikowaniu łatek poprawiających bezpieczeństwo jedynie bezpośrednia groźba w postaci exploita może ich skłonić do energiczniejszego działania. Wykryte przez badaczy zagrożenia często są ukrywane przez odpowiedni czas, aby twórca programu w którym wykryto lukę miała czas na jej poprawienie. Znalezione luki często zapisuje się w bazach błędów np. CVE, przyznając im odpowiedni numer. Niektóre firmy takie jak np. Facebook czy Google mają swoje programy tzw. Bug bounty, dzięki którym osoba, która znajdzie błąd może zostać nagrodzona pieniężnie. Tego typu programy mają na celu wyeliminowanie tzw. 0-day, czyli exploitów, które są wykorzystywane przez „czarne kapelusze”, na które nie ma jeszcze łaty.
+				</text>
+			</information>
+		</segment>
+		<segment id="s4">
+			<title>
+				Moje doświadczenie
+			</title>
+			<information>
+				<text>
+					Obecnie uważam się za średnio doświadczonego pentestera. W wolnym czasie staram się rozwiązać jak najwięcej challang'y tzw. "ctf" na platformach tj. HackTheBox i TryHackMe.
+				</text>
+			</information>
+		</segment>
+		<segment id="s5">
+			<title>
+				Linki
+			</title>
+			<reference src="https://pl.wikipedia.org/wiki/Haker_(bezpiecze%C5%84stwo_komputerowe)">
+				<text>
+					Artykuł o hakerach na Wikipedi
+				</text>
+			</reference>
+			<reference src="https://github.com/EloToJaa/ctf">
+				<text>
+					Link do mojego repozytorium ctf
+				</text>
+			</reference>
+			<reference src="https://tryhackme.com/">
+				<text>
+					Odnośnik do TryHackMe
+				</text>
+			</reference>
+			<reference src="https://www.hackthebox.com/">
+				<text>
+					Odnośnik do HackTheBox
+				</text>
+			</reference>
+		</segment>
+	</data>
+	<images>
+		<image src="https://svgsilh.com/svg/2120014.svg" type="svg" name="Obraz svg" />
+		<image src="img/img1.jpg" type="jpg" name="Obrazek 1" />
+		<image src="img/img2.jpg" type="jpg" name="Obrazek 2" />
+		<image src="img/img3.jpg" type="jpg" name="Obrazek 3" />
+		<image src="img/img4.jpg" type="jpg" name="Obrazek 4" />
+		<image src="img/img5.jpg" type="jpg" name="Obrazek 5" />
+		<image src="img/img6.jpg" type="jpg" name="Obrazek 6" />
+	</images>
+	<hacking>
+		<help>
+			<title>Witaj</title>
+			<text>
+				Twoim zadaniem jest zhakowanie formularza logowania. Każda metoda podejścia do tego zadania jest dozwolona w tym bruteforce. Poniżej możesz wybrać poziom trudności zadania. 
+			</text>
+		</help>
+		<wordlist src="https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000.txt" />
+		<description difficulty="easy">
+			<encryption kind="rot" />
+			<results>
+				<message success="true">
+					<content>
+						0 Gratulacje! Zalogowano
+					</content>
+				</message>
+				<message success="false">
+					<content>
+						1 Niepoprawny login
+					</content>
+				</message>
+				<message success="false">
+					<content>
+						2 Niepoprawne hasło
+					</content>
+				</message>
+				<message success="false">
+					<content>
+						3 Niepoprawny login i hasło
+					</content>
+				</message>
+				<codes>0 1 2 3</codes>
+			</results>
+		</description>
+		<description difficulty="medium">
+			<encryption kind="rot" />
+			<results>
+				<message success="true">
+					<content>
+						0 Gratulacje! Zalogowano
+					</content>
+				</message>
+				<message success="false">
+					<content>
+						1 Niepoprawne dane logowania
+					</content>
+				</message>
+				<codes>0 1</codes>
+			</results>
+		</description>
+		<description difficulty="hard">
+			<encryption kind="custom" />
+			<results>
+				<message success="true">
+					<content>
+						0 Gratulacje! Zalogowano
+					</content>
+				</message>
+				<message success="false">
+					<content>
+						1 Niepoprawny login
+					</content>
+				</message>
+				<message success="false">
+					<content>
+						2 Niepoprawne hasło
+					</content>
+				</message>
+				<message success="false">
+					<content>
+						3 Niepoprawny login i hasło
+					</content>
+				</message>
+				<codes>0 1 2 3</codes>
+			</results>
+		</description>
+		<description difficulty="impossible">
+			<encryption kind="custom" />
+			<results>
+				<message success="true">
+					<content>
+						0 Gratulacje! Zalogowano
+					</content>
+				</message>
+				<message success="false">
+					<content>
+						1 Niepoprawne dane logowania
+					</content>
+				</message>
+				<codes>0 1</codes>
+			</results>
+		</description>
+	</hacking>
+
+</hipertext>

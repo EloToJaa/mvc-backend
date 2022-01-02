@@ -1,0 +1,38 @@
+<!ENTITY name "Haker">
+<!ENTITY % src "src CDATA #REQUIRED">
+<!ENTITY % difficulty "(easy|medium|hard|impossible)">
+
+<!ELEMENT hipertext (data, images, hacking)>
+<!ATTLIST hipertext xmlns:xsi CDATA #REQUIRED>
+<!ATTLIST hipertext xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
+
+<!ELEMENT data (segment+)>
+<!ELEMENT segment (title, information*, reference*)>
+<!ATTLIST segment id ID #REQUIRED>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT information (text, problem*)>
+<!ELEMENT text (#PCDATA)>
+<!ELEMENT problem (title, subproblem*)>
+<!ELEMENT subproblem (#PCDATA)>
+<!ELEMENT reference (text)>
+<!ATTLIST reference %src;>
+
+<!ELEMENT images (image+)>
+<!ELEMENT image (#PCDATA)>
+<!ATTLIST image %src;>
+<!ATTLIST image type (jpg|svg) #REQUIRED>
+<!ATTLIST image name CDATA #REQUIRED>
+
+<!ELEMENT hacking (help, wordlist, description+)>
+<!ELEMENT help (title, text?)>
+<!ELEMENT wordlist EMPTY>
+<!ATTLIST wordlist %src;>
+<!ELEMENT description (encryption, results)>
+<!ATTLIST description difficulty %difficulty; #REQUIRED>
+<!ELEMENT encryption EMPTY>
+<!ATTLIST encryption kind (rot|custom) #REQUIRED>
+<!ELEMENT results (message+, codes)>
+<!ELEMENT message (content)>
+<!ATTLIST message success (true|false) "true">
+<!ELEMENT content (#PCDATA)>
+<!ELEMENT codes (#PCDATA)>
