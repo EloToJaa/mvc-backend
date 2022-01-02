@@ -3,6 +3,7 @@
 $routing = [
     '/' => 'index',
     '/home' => 'index',
+    '/index' => 'index',
     '/bug' => 'bug',
     '/task' => 'task_login',
     '/task/login' => 'task_login',

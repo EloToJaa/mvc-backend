@@ -3,21 +3,28 @@
 
 use MongoDB\BSON\ObjectID;
 
+class Database {
+    public $db;
 
-function get_db()
-{
-    $mongo = new MongoDB\Client(
-        "mongodb://localhost:27017/wai",
-        [
-            'username' => 'wai_web',
-            'password' => 'w@i_w3b',
-        ]);
+    function __construct() {
+        $this->init_db();
+    }
 
-    $db = $mongo->wai;
-
-    return $db;
+    function init_db() {
+        $mongo = new MongoDB\Client(
+            "mongodb://localhost:27017/wai", [
+                'username' => 'wai_web',
+                'password' => 'w@i_w3b',
+            ]
+        );
+        
+        $this->db = $mongo->wai;
+    }
 }
 
+
+
+/*
 function get_products()
 {
     $db = get_db();
@@ -55,5 +62,6 @@ function delete_product($id)
     $db = get_db();
     $db->products->deleteOne(['_id' => new ObjectID($id)]);
 }
+*/
 
 ?>
