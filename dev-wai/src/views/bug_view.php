@@ -2,43 +2,14 @@
 <html lang="pl">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zgłoś bug</title>
-  <link rel="icon" href="img/logo.png">
-  <link rel="stylesheet" href="css/jquery-ui.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <?php include "includes/head.inc.php"; ?>
+  <title>Zgłoś błąd</title>
 </head>
 
 <body>
-  <header class="scrolled">
-    <img src="img/bg.jpg" alt="bg" class="banner">
-    <a href="index.html" class="logo">
-      <img src="img/logo.png" alt="logo" />
-    </a>
-    <a href="#" class="scroll_down">
-      <img src="img/scrollDown.gif" alt="scroll" />
-    </a>
-    <nav>
-      <ul>
-        <li> <a href="index.html">Strona Główna</a> </li>
-        <li> <a href="gallery.html">Galeria</a> </li>
-        <li>
-          <a href="login/start.html">Logowanie</a>
-          <ul>
-            <li> <a href="login/difficulty/easy.html">Łatwy</a> </li>
-            <li> <a href="login/difficulty/medium.html">Średni</a> </li>
-            <li> <a href="login/difficulty/hard.html">Trudny</a> </li>
-            <li> <a href="login/difficulty/impossible.html">Bardzo Trudny</a> </li>
-          </ul>
-        </li>
-        <li> <a href="bug.html" class="active">Zgłoś błąd</a> </li>
-      </ul>
-    </nav>
-  </header>
+  <?php include "includes/header.inc.php"; ?>
   <section>
-    <h1>Poinformuj mnie o Twoim błędzie</h1>
+  <h1>Poinformuj mnie o Twoim błędzie</h1>
     <form>
       <label for="email">Email:</label>
       <input type="text" id="email" name="email" value="">
@@ -122,12 +93,7 @@
       </table>
     </div>
   </section>
-  <footer>
-    Łukasz Budziak &copy; 2021. Wszystkie prawa zastrzeżone.
-  </footer>
-  <script src="js/jquery-3.6.0.min.js"></script>
-  <script src="js/jquery-ui.min.js"></script>
-  <script src="js/main.js"></script>
+  <?php include "includes/footer.inc.php"; ?>
 </body>
 
 </html>

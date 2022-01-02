@@ -9,10 +9,10 @@
 
     <nav>
         <ul>
-            <li> <a href="index.html" class="active">Strona Główna</a> </li>
-            <li> <a href="gallery.html">Galeria</a> </li>
+            <li> <a href="home" class="active">Strona Główna</a> </li>
+            <li> <a href="gallery">Galeria</a> </li>
             <li>
-                <a href="login/start.html">Logowanie</a>
+                <a href="task/start">Logowanie</a>
                 <ul>
                     <li> <a href="static/login/difficulty/easy.html">Łatwy</a> </li>
                     <li> <a href="static/login/difficulty/medium.html">Średni</a> </li>
@@ -20,7 +20,7 @@
                     <li> <a href="static/login/difficulty/impossible.html">Bardzo Trudny</a> </li>
                 </ul>
             </li>
-            <li> <a href="bug.html">Zgłoś błąd</a> </li>
+            <li> <a href="bug">Zgłoś błąd</a> </li>
         </ul>
     </nav>
 </header>

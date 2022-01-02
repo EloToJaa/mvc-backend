@@ -2,44 +2,14 @@
 <html lang="pl">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Strona główna</title>
-  <link rel="icon" href="img/logo.png">
-  <link rel="stylesheet" href="css/jquery-ui.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <?php include "includes/head.inc.php"; ?>
+  <title>Galeria</title>
 </head>
 
 <body>
-  <header class="scrolled">
-    <img src="img/bg.jpg" alt="bg" class="banner" />
-    <a href="index.html" class="logo">
-      <img src="img/logo.png" alt="logo" />
-    </a>
-    <a href="#" class="scroll_down">
-      <img src="img/scrollDown.gif" alt="scroll" />
-    </a>
-
-    <nav>
-      <ul>
-        <li> <a href="index.html">Strona Główna</a> </li>
-        <li> <a href="gallery.html" class="active">Galeria</a> </li>
-        <li>
-          <a href="login/start.html">Logowanie</a>
-          <ul>
-            <li> <a href="login/difficulty/easy.html">Łatwy</a> </li>
-            <li> <a href="login/difficulty/medium.html">Średni</a> </li>
-            <li> <a href="login/difficulty/hard.html">Trudny</a> </li>
-            <li> <a href="login/difficulty/impossible.html">Bardzo Trudny</a> </li>
-          </ul>
-        </li>
-        <li> <a href="bug.html">Zgłoś błąd</a> </li>
-      </ul>
-    </nav>
-  </header>
+  <?php include "includes/header.inc.php"; ?>
   <section>
-    <h1>Obrazek SVG</h1>
+  <h1>Obrazek SVG</h1>
     <hr><br>
     <svg xmlns="http://www.w3.org/2000/svg"
       width="100%" height="100%" viewBox="0 0 1280.000000 988.000000"
@@ -1191,8 +1161,8 @@
     <hr><br>
     <div class="responsive">
       <div class="gallery">
-        <a target="_blank" href="img/img1.jpg">
-          <img src="img/img1.jpg" alt="Obrazek 1">
+        <a target="_blank" href="static/img/img1.jpg">
+          <img src="static/img/img1.jpg" alt="Obrazek 1">
         </a>
         <div class="desc">Obrazek numer 1</div>
       </div>
@@ -1201,8 +1171,8 @@
     
     <div class="responsive">
       <div class="gallery">
-        <a target="_blank" href="img/img2.jpg">
-          <img src="img/img2.jpg" alt="Obrazek 2">
+        <a target="_blank" href="static/img/img2.jpg">
+          <img src="static/img/img2.jpg" alt="Obrazek 2">
         </a>
         <div class="desc">Obrazek numer 2</div>
       </div>
@@ -1210,8 +1180,8 @@
     
     <div class="responsive">
       <div class="gallery">
-        <a target="_blank" href="img/img3.jpg">
-          <img src="img/img3.jpg" alt="Obrazek 3">
+        <a target="_blank" href="static/img/img3.jpg">
+          <img src="static/img/img3.jpg" alt="Obrazek 3">
         </a>
         <div class="desc">Obrazek numer 3</div>
       </div>
@@ -1219,8 +1189,8 @@
     
     <div class="responsive">
       <div class="gallery">
-        <a target="_blank" href="img/img4.jpg">
-          <img src="img/img4.jpg" alt="Obrazek 4">
+        <a target="_blank" href="static/img/img4.jpg">
+          <img src="static/img/img4.jpg" alt="Obrazek 4">
         </a>
         <div class="desc">Obrazek numer 4</div>
       </div>
@@ -1228,8 +1198,8 @@
 
     <div class="responsive">
       <div class="gallery">
-        <a target="_blank" href="img/img5.jpg">
-          <img src="img/img5.jpg" alt="Obrazek 5">
+        <a target="_blank" href="static/img/img5.jpg">
+          <img src="static/img/img5.jpg" alt="Obrazek 5">
         </a>
         <div class="desc">Obrazek numer 5</div>
       </div>
@@ -1237,22 +1207,16 @@
 
     <div class="responsive">
       <div class="gallery">
-        <a target="_blank" href="img/img6.jpg">
-          <img src="img/img6.jpg" alt="Obrazek 6">
+        <a target="_blank" href="static/img/img6.jpg">
+          <img src="static/img/img6.jpg" alt="Obrazek 6">
         </a>
         <div class="desc">Obrazek numer 6</div>
       </div>
     </div>
     
     <div class="clearfix"></div>
-
   </section>
-  <footer>
-    Łukasz Budziak &copy; 2021. Wszystkie prawa zastrzeżone.
-  </footer>
-  <script src="js/jquery-3.6.0.min.js"></script>
-  <script src="js/jquery-ui.min.js"></script>
-  <script src="js/main.js"></script>
+  <?php include "includes/footer.inc.php"; ?>
 </body>
 
 </html>
