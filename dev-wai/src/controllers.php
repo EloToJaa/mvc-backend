@@ -1,6 +1,6 @@
 <?php
 require_once 'business.php';
-
+require_once 'controller_utils.php';
 
 function index(&$model) {
     $model['title'] = 'Strona Główna';
@@ -24,6 +24,7 @@ function bug(&$model) {
 
 function gallery(&$model) {
     $model['title'] = 'Galeria';
+    
     // $model['images'] = get_images();
     return 'gallery_view';
 }
