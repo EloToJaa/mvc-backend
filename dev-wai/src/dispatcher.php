@@ -1,45 +1,8 @@
 <?php
 
-/*
-class Dispatcher {
-    protected const REDIRECT_PREFIX = 'redirect:';
-
-    function dispatch($routing, $action_url) {
-        $controller_name = $routing[$action_url];
-
-        $model = [];
-        $view_name = $controller_name($model);
-
-        $this->build_response($view_name, $model);
-    }
-
-    function build_response($view, $model) {
-        if (strpos($view, $this->REDIRECT_PREFIX) === 0) {
-            $url = substr($view, strlen($this->REDIRECT_PREFIX));
-            header("Location: " . $url);
-            exit;
-        }
-        else {
-            $this->render($view, $model);
-        }
-    }
-
-    function render($view_name, $model) {
-        global $routing;
-        extract($model);
-        include 'views/' . $view_name . '.php';
-    }
-
-    function is_ajax() {
-        return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
-    }
-}
-*/
-
 const REDIRECT_PREFIX = 'redirect:';
 
-function dispatch($routing, $action_url)
-{
+function dispatch($routing, $action_url) {
     $controller_name = $routing[$action_url];
 
     $model = [];
@@ -48,29 +11,25 @@ function dispatch($routing, $action_url)
     build_response($view_name, $model);
 }
 
-function build_response($view, $model)
-{
+function build_response($view, $model) {
     if (strpos($view, REDIRECT_PREFIX) === 0) {
         $url = substr($view, strlen(REDIRECT_PREFIX));
         header("Location: " . $url);
         exit;
-
-    } else {
+    }
+    else {
         render($view, $model);
     }
 }
 
-function render($view_name, $model)
-{
+function render($view_name, $model) {
     global $routing;
     extract($model);
     include 'views/' . $view_name . '.php';
 }
 
-function is_ajax()
-{
-    return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
-    strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
+function is_ajax() {
+    return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 }
 
 
