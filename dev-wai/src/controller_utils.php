@@ -5,7 +5,7 @@ function upload_file() {
     $target_file = basename($_FILES["fileToUpload"]["name"]);
     $image_file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // Check if image file is a actual image or fake image
+    // Check if image file is an actual image
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
         if($check !== false) {
@@ -30,7 +30,6 @@ function upload_file() {
         $upload_result = 0;
     }
 
-    // Check if $upload_result is set to 0 by an error
     if ($upload_result == 0) {
         alert("Plik nie został wysłany");
     }
@@ -38,7 +37,7 @@ function upload_file() {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             alert("Plik " . htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])) . " został wysłany");
 
-            convert_image($target_file, 1, "Test");
+            convert_image($target_file, 3, "Testowanie");
         }
         else {
             alert("Błąd podczas wysyłania pliku");
