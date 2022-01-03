@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 
-<head>
-  <?php include "includes/head.inc.php"; ?>
-  <title>Zgłoś błąd</title>
-</head>
+<?php include "includes/head.inc.php"; ?>
 
 <body>
   <?php include "includes/header.inc.php"; ?>
