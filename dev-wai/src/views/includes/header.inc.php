@@ -11,8 +11,9 @@
         <ul>
             <li> <a href="home" class="active">Strona Główna</a> </li>
             <li> <a href="gallery">Galeria</a> </li>
+            <li> <a href="gallery">Logowanie</a> </li>
             <li>
-                <a href="task/start">Logowanie</a>
+                <a href="task/start">Zadanie</a>
                 <ul>
                     <li> <a href="static/login/difficulty/easy.html">Łatwy</a> </li>
                     <li> <a href="static/login/difficulty/medium.html">Średni</a> </li>

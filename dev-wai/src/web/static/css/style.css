@@ -370,7 +370,7 @@ div.desc {
 	clear: both;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 800px) {
 	header {
 		padding: 0 10px;
 	}
@@ -390,7 +390,7 @@ div.desc {
 	}
 }
 
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 570px) {
 	header.scrolled .logo img {
 		display: none;
 	}
@@ -399,7 +399,7 @@ div.desc {
 	}
 }
 
-@media only screen and (max-width: 410px) {
+@media only screen and (max-width: 490px) {
 	nav > ul > li > a {
 		padding: 10px 3px;
 	}
