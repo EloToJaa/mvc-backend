@@ -83,8 +83,6 @@ function collection(&$model) {
 function collection_add(&$model) {
     $model['title'] = 'Kolekcja';
 
-    alert('ADD');
-
     // Adding to collection
     $images = get_images();
     for($i = 0; $i < count($images); $i++) {
@@ -99,8 +97,6 @@ function collection_add(&$model) {
 
 function collection_del(&$model) {
     $model['title'] = 'Kolekcja';
-
-    alert('DEL');
 
     // Removing from collection 
     $images = [];
@@ -225,14 +221,14 @@ function logout(&$model) {
 }
 
 function logged_in(&$model) {
+    $model['title'] = 'Dane';
+
     $logged = $_SESSION['user_id'] !== null;
     if ($logged) {
-        $model['title'] = 'Zalogowany';
         $user = get_user_by_id($_SESSION['user_id']);
         $model['user'] = $user;
         return 'logged_in_view';
     } else {
-        $model['title'] = 'Nie zalogowany';
         return 'not_logged_in_view';
     }
 }

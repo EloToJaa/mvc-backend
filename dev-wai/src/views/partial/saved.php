@@ -24,7 +24,7 @@
 
 <br>
 <?php for ($page = 1; $page <= $pages; $page++) { ?>
-    <span class="page_link"><a href="/gallery?page=<?= $page ?>"><?= $page ?></a></span>
+    <span class="page_link"><a href="/collection?page=<?= $page ?>"><?= $page ?></a></span>
 <?php }  ?>
 <br><br>
 
