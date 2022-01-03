@@ -1,7 +1,10 @@
 <?php
 
-
 use MongoDB\BSON\ObjectID;
+
+function alert($message) {
+    echo '<script>console.log("' . $message . '");</script>';
+}
 
 function png_to_jpg($filePath) {
     $image = imagecreatefrompng($filePath);
@@ -15,16 +18,54 @@ function png_to_jpg($filePath) {
     imagedestroy($bg);
 }
 
-function create_thumbnail($file_path, $thumb_file, $width, $height) {
+function create_thumbnail($file_path, $thumb_file, $width, $height, $file_type) {
     $original_info = getimagesize($file_path);
     $original_w = $original_info[0];
     $original_h = $original_info[1];
-    $original_img = imagecreatefromjpeg($file_path);
+    if($file_type == "png") {
+        $original_img = imagecreatefrompng($file_path);
+    }
+    else {
+        $original_img = imagecreatefromjpeg($file_path);
+    }
     $thumb_img = imagecreatetruecolor($width, $height);
     imagecopyresampled($thumb_img, $original_img, 0, 0, 0, 0, $width, $height, $original_w, $original_h);
     imagejpeg($thumb_img, $thumb_file);
     imagedestroy($thumb_img);
     imagedestroy($original_img);
+}
+
+function create_watermark() {
+
+}
+
+function convert_image($target_file, $image_id, $watermark_text) {
+    $original_dir = "images/original/";
+    $thumb_dir = "images/min/";
+    $watermark_dir = "images/watermark/";
+
+    $image_file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+    // Convert png to jpg
+    if($image_file_type == "png") {
+        png_to_jpg($target_file);
+    }
+
+    $file_name = $image_id . ".jpg";
+
+    $original_file = $original_dir . $file_name;
+    $thumb_file = $thumb_dir . $file_name;
+    $watermark_file = $watermark_dir . $file_name;
+
+    // Move original file
+    rename($target_file . '.jpg', $original_file);
+    unlink($target_file);
+
+    // Create thumbnail
+    create_thumbnail($original_file, $thumb_file, 200, 125, $image_file_type);
+
+    // Create watermark
+    create_watermark($original_file, $watermark_file);
 }
 
 function get_db() {

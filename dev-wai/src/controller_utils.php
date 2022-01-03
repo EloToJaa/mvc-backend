@@ -1,63 +1,44 @@
 <?php
 
-function alert($message) {
-    echo '<script>console.log("' . $message . '");</script>';
-}
-
 function upload_file() {
-    $target_dir = "images/original/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $thumb_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $upload_result = 1;
+    $target_file = basename($_FILES["fileToUpload"]["name"]);
+    $image_file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
     // Check if image file is a actual image or fake image
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
         if($check !== false) {
             alert("Ten plik jest zdjęciem - " . $check["mime"]);
-            $uploadOk = 1;
+            $upload_result = 1;
         }
         else {
             alert("Ten plik nie jest zdjęciem");
-            $uploadOk = 0;
+            $upload_result = 0;
         }
-    }
-
-    // Check if file already exists
-    if (file_exists($target_file)) {
-        alert("Ten plik już istnieje");
-        $uploadOk = 0;
     }
 
     // Check file size
     if ($_FILES["fileToUpload"]["size"] > 1000000) {
         alert("Rozmiar pliku jest większy niż 1MB");
-        $uploadOk = 0;
+        $upload_result = 0;
     }
 
-    // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png") {
+    // Check file extension
+    if($image_file_type != "jpg" && $image_file_type != "png") {
         alert("Niepoprawne rozszerzenie pliku");
-        $uploadOk = 0;
+        $upload_result = 0;
     }
 
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
+    // Check if $upload_result is set to 0 by an error
+    if ($upload_result == 0) {
         alert("Plik nie został wysłany");
     }
     else {
-        alert($target_file);
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             alert("Plik " . htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])) . " został wysłany");
-            
-            // Convert png to jpg
-            if($imageFileType == "png") {
-                png_to_jpg($target_file);
-            }
 
-            // Create thumbnail
-            create_thumbnail($target_file . '.jpg', $thumb_file, 200, 125);
+            convert_image($target_file, 1, "Test");
         }
         else {
             alert("Błąd podczas wysyłania pliku");
