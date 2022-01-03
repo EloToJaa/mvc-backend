@@ -6,10 +6,10 @@
 <body>
     <?php include "includes/header.inc.php"; ?>
     <section>
-        <h1>Obrazek SVG</h1>
+        <h1>Dodawanie zdjęcia</h1>
         <hr><br>
 
-        <form action="upload.php" method="post" enctype="multipart/form-data">
+        <form action="/upload" method="post" enctype="multipart/form-data">
             Wybierz zdjęcie:
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit">

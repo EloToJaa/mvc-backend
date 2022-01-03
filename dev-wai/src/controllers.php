@@ -24,7 +24,7 @@ function bug(&$model) {
 
 function upload(&$model) {
     $model['title'] = 'Dodaj zdjęcie';
-    
+    upload_file();
     return 'upload_view';
 }
 
