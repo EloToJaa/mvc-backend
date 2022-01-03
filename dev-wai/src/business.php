@@ -105,6 +105,23 @@ function get_db() {
     return $db;
 }
 
+function add_image($image, $id = null) {
+    $db = get_db();
+
+    if ($id == null) {
+        $db->images->insertOne($image);
+    }
+    else {
+        $db->images->replaceOne(['_id' => new ObjectID($id)], $image);
+    }
+}
+
+function get_img_id() {
+    $db = get_db();
+
+    return count($db->images->find()->toArray()) + 1;
+}
+
 
 /*
 function get_products()
@@ -116,8 +133,8 @@ function get_products()
 function get_products_by_category($cat)
 {
     $db = get_db();
-    $products = $db->products->find(['cat' => $cat]);
-    return $products;
+    $images = $db->products->find(['cat' => $cat]);
+    return $images;
 }
 
 function get_product($id)
@@ -126,14 +143,14 @@ function get_product($id)
     return $db->products->findOne(['_id' => new ObjectID($id)]);
 }
 
-function save_product($id, $product)
+function save_product($id, $image)
 {
     $db = get_db();
 
     if ($id == null) {
-        $db->products->insertOne($product);
+        $db->products->insertOne($image);
     } else {
-        $db->products->replaceOne(['_id' => new ObjectID($id)], $product);
+        $db->products->replaceOne(['_id' => new ObjectID($id)], $image);
     }
 
     return true;

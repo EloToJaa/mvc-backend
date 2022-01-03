@@ -11,16 +11,16 @@
 
         <form action="/upload" method="post" enctype="multipart/form-data">
             <label for="fileToUpload"><span style="color:red">*</span> Wybierz zdjęcie:</label>
-            <br><input type="file" name="fileToUpload" id="fileToUpload"><br>
+            <br><input type="file" name="fileToUpload" id="fileToUpload" required><br>
 
             <label for="author"><span style="color:red">*</span> Autor:</label>
-            <input type="text" id="author" name="author" value="">
+            <input type="text" id="author" name="author" value="" required>
 
             <label for="title"><span style="color:red">*</span> Tytuł:</label>
-            <input type="text" id="title" name="title" value="">
+            <input type="text" id="title" name="title" value="" required>
 
             <label for="watermark"><span style="color:red">*</span> Watermark tekst:</label>
-            <input type="text" id="watermark" name="watermark" value="">
+            <input type="text" id="watermark" name="watermark" value="" required>
 
             <input type="submit" value="Wyślij zdjęcie" name="submit">
             <br><br><span style="color:red">*</span> - Wymagane pole<br><br>

@@ -1,4 +1,5 @@
 <?php
+
 require_once 'business.php';
 require_once 'controller_utils.php';
 
@@ -24,11 +25,23 @@ function bug(&$model) {
 
 function upload(&$model) {
     $model['title'] = 'Dodaj zdjęcie';
-    if(isset($_FILES["fileToUpload"]["name"])) {
-        upload_file();
+    if(isset($_FILES['fileToUpload']['name'])) {
+        $file_name = upload_file($_POST['watermark']);
     }
     $model['messages'] = get_messages();
-    // print_r($model['messages']);
+
+    if(!isset($_FILES['fileToUpload']['name'])) {
+        return 'upload_view';
+    }
+
+    $image = [
+        'title' => $_POST['title'],
+        'author' => $_POST['author'],
+        'file_name' => $file_name
+    ];
+
+    add_image($image);
+
     return 'upload_view';
 }
 

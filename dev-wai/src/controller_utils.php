@@ -4,26 +4,19 @@ $msg = [];
 
 function get_messages() {
     $msg = $GLOBALS['msg'];
-    // print_r($msg);
-    // print_r($GLOBALS['msg']);
     $GLOBALS['msg'] = [];
     return $msg;
 }
 
 function alert($message, $success = false) {
     echo '<script>console.log("' . $message . '");</script>';
-    // $GLOBALS['msg'] = [
-    //     'content' => $message,
-    //     'success' => $success
-    // ];
     array_push($GLOBALS['msg'], [
         'content' => $message,
         'success' => $success
     ]);
-    // print_r($GLOBALS['msg']);
 }
 
-function upload_file() {
+function upload_file($watermark) {
     $upload_result = 1;
     $target_file = basename($_FILES["fileToUpload"]["name"]);
     $image_file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -59,8 +52,9 @@ function upload_file() {
     else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             alert("Plik " . htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])) . " został pomyślnie wysłany", true);
-
-            convert_image($target_file, 3, "Testowanie");
+            $id = get_img_id();
+            convert_image($target_file, $id, $watermark);
+            return $id . '.' . $image_file_type;
         }
         else {
             alert("Błąd podczas wysyłania pliku");
