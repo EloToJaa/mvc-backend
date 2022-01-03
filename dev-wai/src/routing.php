@@ -9,7 +9,8 @@ $routing = [
     '/task/start' => 'task_start',
     '/gallery' => 'gallery',
     '/login' => 'login',
-    '/register' => 'register'
+    '/register' => 'register',
+    '/upload' => 'upload'
 ]
 
 ?>

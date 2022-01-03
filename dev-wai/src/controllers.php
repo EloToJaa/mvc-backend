@@ -22,6 +22,12 @@ function bug(&$model) {
     return 'bug_view';
 }
 
+function upload(&$model) {
+    $model['title'] = 'Dodaj zdjęcie';
+    
+    return 'upload_view';
+}
+
 function gallery(&$model) {
     $model['title'] = 'Galeria';
     
