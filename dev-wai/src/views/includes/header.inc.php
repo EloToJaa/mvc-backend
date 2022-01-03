@@ -10,7 +10,7 @@
     <nav>
         <ul id="navbar">
             <li> <a href="/home">Strona Główna</a> </li>
-            <li> <a href="/gallery">Galeria</a> </li>
+            <li class="active"> <a href="/gallery">Galeria</a> </li>
             <li> <a href="/login">Logowanie</a> </li>
             <li>
                 <a href="/task/start">Zadanie</a>
@@ -27,12 +27,11 @@
 </header>
 
 <script>
-    console.log("START");
     var elements = document.getElementById("navbar").getElementsByTagName("li");
     for(var i = 0; i < elements.length; i++) {
-        console.log(elements[i].textContent.trim());
-        if(elements[i].textContent.trim() === "<?= $title ?>") {
-            elements[i].classList.add("active");
+        var element = elements[i].getElementsByTagName("a")[0];
+        if(element.textContent === "<?= $title ?>") {
+            element.classList.add("active");
         }
     }
 </script>
