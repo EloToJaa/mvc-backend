@@ -86,7 +86,7 @@ function login(&$model)
 {
     $model['title'] = 'Logowanie';
 
-    if (isset($_SESSION['user_id'])) {
+    if (is_logged_in()) {
         return 'redirect:logged_in';
     }
 
@@ -95,8 +95,6 @@ function login(&$model)
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $login = $_POST['login'];
         $password = $_POST['password'];
-
-        // get_messages();
 
         $valid_login = true;
 
@@ -137,7 +135,7 @@ function register(&$model)
 {
     $model['title'] = 'Rejestracja';
 
-    if (isset($_SESSION['user_id'])) {
+    if (is_logged_in()) {
         return 'redirect:logged_in';
     }
 
@@ -146,8 +144,6 @@ function register(&$model)
         $login = $_POST['login'];
         $password = $_POST['password'];
         $repeat_password = $_POST['repeat_password'];
-
-        // get_messages();
 
         $valid_registration = true;
 
@@ -191,7 +187,7 @@ function register(&$model)
 function logout(&$model)
 {
     $model['title'] = 'Wylogowanie';
-    if (isset($_SESSION['user_id'])) {
+    if (is_logged_in()) {
         session_unset();
         session_destroy();
         session_start();
