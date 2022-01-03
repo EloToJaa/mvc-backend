@@ -47,6 +47,26 @@ function upload(&$model) {
 
 function gallery(&$model) {
     $model['title'] = 'Galeria';
-    $model['images'] = get_images();
+    $items_on_page = 8;
+
+    if(!isset($_GET['page'])) {
+        $model['current_page'] = 1;
+    }
+    else {
+        $model['current_page'] = $_GET['page'];
+    }
+    $number_of_img = get_img_id() - 1;
+    $model['pages'] = $number_of_img / $items_on_page + 1;
+
+    $images = get_images();
+
+    $page = $model['current_page'];
+    $start_img = ($page - 1) * $items_on_page;
+    $end_img = min($start_img + $items_on_page, count($images));
+    $model['images'] = [];
+    for($i = $start_img; $i < $end_img; $i++) {
+        array_push($model['images'], $images[$i]); 
+    }
+
     return 'gallery_view';
 }
