@@ -22,8 +22,8 @@
             <label for="watermark"><span style="color:red">*</span> Watermark tekst:</label>
             <input type="text" id="watermark" name="watermark" value="">
 
-            <input type="submit" value="Upload Image" name="submit">
-            <br><br><span style="color:red">*</span> - Wymagane pole
+            <input type="submit" value="Wyślij zdjęcie" name="submit">
+            <br><br><span style="color:red">*</span> - Wymagane pole<br><br>
 
             <?php include "partial/messages.php"; ?>
         </form>

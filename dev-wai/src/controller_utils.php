@@ -3,18 +3,24 @@
 $msg = [];
 
 function get_messages() {
-    global $msg;
-    $msg_cp = $msg;
-    $msg = [];
-    return $msg_cp;
+    $msg = $GLOBALS['msg'];
+    // print_r($msg);
+    // print_r($GLOBALS['msg']);
+    $GLOBALS['msg'] = [];
+    return $msg;
 }
 
 function alert($message, $success = false) {
     echo '<script>console.log("' . $message . '");</script>';
-    $msg[] = [
+    // $GLOBALS['msg'] = [
+    //     'content' => $message,
+    //     'success' => $success
+    // ];
+    array_push($GLOBALS['msg'], [
         'content' => $message,
         'success' => $success
-    ];
+    ]);
+    // print_r($GLOBALS['msg']);
 }
 
 function upload_file() {
@@ -31,6 +37,7 @@ function upload_file() {
         else {
             alert("Załączony plik nie jest zdjęciem");
             $upload_result = 0;
+            return;
         }
     }
 

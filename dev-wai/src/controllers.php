@@ -28,6 +28,7 @@ function upload(&$model) {
         upload_file();
     }
     $model['messages'] = get_messages();
+    // print_r($model['messages']);
     return 'upload_view';
 }
 
