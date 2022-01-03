@@ -49,14 +49,21 @@ function gallery(&$model) {
     $model['title'] = 'Galeria';
     $items_on_page = 8;
 
-    if(!isset($_GET['page'])) {
+    $number_of_img = get_img_id() - 1;
+    $model['pages'] = $number_of_img / $items_on_page + 1;
+
+    if(!ctype_digit($_GET['page'])) {
         $model['current_page'] = 1;
     }
     else {
-        $model['current_page'] = $_GET['page'];
+        $page = intval($_GET['page']);
+        if(!isset($page) || $page < 1 || $page > $model['pages']) {
+            $model['current_page'] = 1;
+        }
+        else {
+            $model['current_page'] = $page;
+        }
     }
-    $number_of_img = get_img_id() - 1;
-    $model['pages'] = $number_of_img / $items_on_page + 1;
 
     $images = get_images();
 
