@@ -2,18 +2,6 @@
 
 use MongoDB\BSON\ObjectID;
 
-// function png_to_jpg($filePath) {
-//     $image = imagecreatefrompng($filePath);
-//     $bg = imagecreatetruecolor(imagesx($image), imagesy($image));
-//     imagefill($bg, 0, 0, imagecolorallocate($bg, 255, 255, 255));
-//     imagealphablending($bg, TRUE);
-//     imagecopy($bg, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
-//     imagedestroy($image);
-//     $quality = 100;
-//     imagejpeg($bg, $filePath . ".jpg", $quality);
-//     imagedestroy($bg);
-// }
-
 function create_thumbnail($file_path, $thumb_file, $width, $height, $file_type) {
     $original_info = getimagesize($file_path);
     $original_w = $original_info[0];
@@ -120,6 +108,12 @@ function get_img_id() {
     $db = get_db();
 
     return count($db->images->find()->toArray()) + 1;
+}
+
+function get_images() {
+    $db = get_db();
+
+    return $db->images->find()->toArray();
 }
 
 

@@ -47,7 +47,6 @@ function upload(&$model) {
 
 function gallery(&$model) {
     $model['title'] = 'Galeria';
-    
-    // $model['images'] = get_images();
+    $model['images'] = get_images();
     return 'gallery_view';
 }

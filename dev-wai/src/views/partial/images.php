@@ -1,6 +1,6 @@
 <h1>Galeria</h1>
 <hr><br>
-<div class="responsive">
+<!-- <div class="responsive">
     <div class="gallery">
         <a target="_blank" href="static/img/img1.jpg">
             <img src="static/img/img1.jpg" alt="Obrazek 1">
@@ -53,6 +53,20 @@
         </a>
         <div class="desc">Obrazek numer 6</div>
     </div>
-</div>
+</div> -->
+
+<?php foreach($images as $image) { ?>
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="/images/watermark/<?= $image['file_name'] ?>">
+                <img src="/images/min/<?= $image['file_name'] ?>" alt="<?= $image['title'] ?>">
+            </a>
+            <div class="desc">
+                <b>Tytuł:</b> <?= $image['title'] ?> <br>
+                <b>Autor:</b> <?= $image['author'] ?>
+            </div>
+        </div>
+    </div>
+<?php }  ?>
 
 <div class="clearfix"></div>
