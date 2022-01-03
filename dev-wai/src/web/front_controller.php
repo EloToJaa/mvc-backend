@@ -7,6 +7,7 @@ require_once '../controllers.php';
 
 //aspekty globalne
 session_start();
+$_SESSION['images'] = [];
 get_messages();
 
 //wybór kontrolera do wywołania:

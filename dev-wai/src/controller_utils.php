@@ -67,3 +67,32 @@ function upload_file($watermark) {
 function is_logged_in() {
     return isset($_SESSION['user_id']);
 }
+
+function get_page(&$model) {
+    if (!isset($_GET['page']) || !ctype_digit($_GET['page'])) {
+        // page variable is string
+        $model['current_page'] = 1;
+    } else {
+        $page = intval($_GET['page']);
+        if (!isset($page) || $page < 1 || $page > $model['pages']) {
+            $model['current_page'] = 1;
+        } else {
+            $model['current_page'] = $page;
+        }
+    }
+}
+
+function paging(&$model, $images, $items_on_page) {
+    $page = $model['current_page'];
+
+    $number_of_img = count($images);
+
+    $start_img = ($page - 1) * $items_on_page;
+    $end_img = min($start_img + $items_on_page, count($images));
+
+    $model['images'] = [];
+    for ($i = $start_img; $i < $end_img; $i++) {
+        // $images[$i]['img_id'] = $i + 1;
+        array_push($model['images'], $images[$i]);
+    }
+}

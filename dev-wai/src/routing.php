@@ -13,5 +13,9 @@ $routing = [
     '/register' => 'register',
     '/logout' => 'logout',
     '/logged_in' => 'logged_in',
-    '/upload' => 'upload'
+    '/upload' => 'upload',
+    '/collection/collection' => 'collection',
+    '/collection' => 'collection',
+    '/collection/add' => 'collection_add',
+    '/collection/del' => 'collection_del',
 ];

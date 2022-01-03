@@ -1,7 +1,7 @@
-<h1>Galeria</h1>
+<h1>Zapisane zdjęcia</h1>
 <hr><br>
 
-<form action="/collection/add" method="post" enctype="multipart/form-data">
+<form action="/collection/del" method="post" enctype="multipart/form-data">
     <?php foreach ($images as $image) { ?>
         <div class="responsive">
             <div class="gallery">
@@ -11,7 +11,7 @@
                 <div class="desc">
                     <b>Tytuł:</b> <?= $image['title'] ?> <br>
                     <b>Autor:</b> <?= $image['author'] ?> <br>
-                    <b>Wybierz: </b> <input type="checkbox" name="check_<?= $image['img_id'] ?>">
+                    <b>Wybierz: </b> <input type="checkbox" name="checkbox_<?= $image['img_id'] ?>">
                 </div>
             </div>
         </div>
@@ -19,13 +19,13 @@
 
     <div class="clearfix"></div>
 
-    <input type="submit" value="Zapamiętaj wybrane">
+    <input type="submit" value="Usuń">
 </form>
 
 <br>
 <?php for ($page = 1; $page <= $pages; $page++) { ?>
-    <span class="page_link"><a href="/collection?page=<?= $page ?>"><?= $page ?></a></span>
+    <span class="page_link"><a href="/gallery?page=<?= $page ?>"><?= $page ?></a></span>
 <?php }  ?>
 <br><br>
 
-<a href="/upload"><input id="helpBtn" type="submit" value="Dodaj zdjęcie"></a>
+<a href="/gallery"><input id="helpBtn" type="submit" value="Wróć do galerii"></a>

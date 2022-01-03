@@ -3,32 +3,27 @@
 require_once 'business.php';
 require_once 'controller_utils.php';
 
-function index(&$model)
-{
+function index(&$model) {
     $model['title'] = 'Strona Główna';
     return 'index_view';
 }
 
-function task_start(&$model)
-{
+function task_start(&$model) {
     $model['title'] = 'Zadanie';
     return 'start_view';
 }
 
-function task_login(&$model)
-{
+function task_login(&$model) {
     $model['title'] = 'Zaloguj się';
     return 'task_view';
 }
 
-function bug(&$model)
-{
+function bug(&$model) {
     $model['title'] = 'Zgłoś błąd';
     return 'bug_view';
 }
 
-function upload(&$model)
-{
+function upload(&$model) {
     $model['title'] = 'Dodaj zdjęcie';
     if (isset($_FILES['fileToUpload']['name'])) {
         $file_name = upload_file($_POST['watermark']);
@@ -42,7 +37,8 @@ function upload(&$model)
     $image = [
         'title' => $_POST['title'],
         'author' => $_POST['author'],
-        'file_name' => $file_name
+        'file_name' => $file_name,
+        'img_id' => (get_img_id() - 1)
     ];
 
     add_image($image);
@@ -50,40 +46,74 @@ function upload(&$model)
     return 'upload_view';
 }
 
-function gallery(&$model)
-{
+function gallery(&$model) {
     $model['title'] = 'Galeria';
+
     $items_on_page = 8;
 
-    $number_of_img = get_img_id() - 1;
-    $model['pages'] = $number_of_img / $items_on_page + 1;
-
-    if (!ctype_digit($_GET['page'])) {
-        $model['current_page'] = 1;
-    } else {
-        $page = intval($_GET['page']);
-        if (!isset($page) || $page < 1 || $page > $model['pages']) {
-            $model['current_page'] = 1;
-        } else {
-            $model['current_page'] = $page;
-        }
-    }
-
     $images = get_images();
+    $model['pages'] = count($images) / $items_on_page + 1;
 
-    $page = $model['current_page'];
-    $start_img = ($page - 1) * $items_on_page;
-    $end_img = min($start_img + $items_on_page, count($images));
-    $model['images'] = [];
-    for ($i = $start_img; $i < $end_img; $i++) {
-        array_push($model['images'], $images[$i]);
-    }
+    get_page($model);
+
+    paging($model, $images, $items_on_page);
 
     return 'gallery_view';
 }
 
-function login(&$model)
-{
+function collection(&$model) {
+    $model['title'] = 'Kolekcja';
+
+    if (!isset($_SESSION['images'])) {
+        return 'redirect:gallery';
+    }
+
+    $items_on_page = 8;
+
+    $images = $_SESSION['images'];
+    $model['pages'] = count($images) / $items_on_page + 1;
+
+    get_page($model);
+
+    paging($model, $images, $items_on_page);
+
+    return 'collection_view';
+}
+
+function collection_add(&$model) {
+    $model['title'] = 'Kolekcja';
+
+    alert('ADD');
+
+    // Adding to collection
+    $images = get_images();
+    for($i = 0; $i < count($images); $i++) {
+        $image = $images[$i];
+        if(isset($_GET['check_' . $i])) {
+            array_push($_SESSION['images'], $image);
+        }
+    }
+
+    return 'redirect:collection';
+}
+
+function collection_del(&$model) {
+    $model['title'] = 'Kolekcja';
+
+    alert('DEL');
+
+    // Removing from collection 
+    $images = [];
+    foreach($_SESSION['images'] as $image) {
+        if(!isset($_GET['check_' . $image['img_id']])) {
+            array_push($images, $image);
+        }
+    }
+
+    return 'redirect:collection';
+}
+
+function login(&$model) {
     $model['title'] = 'Logowanie';
 
     if (is_logged_in()) {
@@ -131,8 +161,7 @@ function login(&$model)
     return 'login_view';
 }
 
-function register(&$model)
-{
+function register(&$model) {
     $model['title'] = 'Rejestracja';
 
     if (is_logged_in()) {
@@ -184,19 +213,18 @@ function register(&$model)
     return 'register_view';
 }
 
-function logout(&$model)
-{
+function logout(&$model) {
     $model['title'] = 'Wylogowanie';
     if (is_logged_in()) {
         session_unset();
         session_destroy();
         session_start();
+        $_SESSION['images'] = [];
     }
     return 'redirect:logged_in';
 }
 
-function logged_in(&$model)
-{
+function logged_in(&$model) {
     $logged = $_SESSION['user_id'] !== null;
     if ($logged) {
         $model['title'] = 'Zalogowany';
