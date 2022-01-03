@@ -1,15 +1,17 @@
 <?php
 
-$msg = [];
-
 function get_messages() {
-    $msg = $GLOBALS['msg'];
+    if(isset($GLOBALS['msg'])) {
+        $msg = $GLOBALS['msg'];
+        $GLOBALS['msg'] = [];
+        return $msg;
+    }
     $GLOBALS['msg'] = [];
-    return $msg;
+    return null;
 }
 
 function alert($message, $success = false) {
-    echo '<script>console.log("' . $message . '");</script>';
+    // echo '<script>console.log("' . $message . '");</script>';
     array_push($GLOBALS['msg'], [
         'content' => $message,
         'success' => $success

@@ -199,7 +199,7 @@ class StreamWrapper
             1  => 0,  'ino'     => 0,
             2  => 0,  'mode'    => 0,
             3  => 0,  'nlink'   => 0,
-            4  => 0,  'uid'     => 0,
+            4  => 0,  'user_id'     => 0,
             5  => 0,  'gid'     => 0,
             6  => -1, 'rdev'    => -1,
             7  => 0,  'size'    => 0,

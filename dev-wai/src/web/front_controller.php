@@ -7,6 +7,7 @@ require_once '../controllers.php';
 
 //aspekty globalne
 session_start();
+get_messages();
 
 //wybór kontrolera do wywołania:
 $action_url = $_GET['action'];

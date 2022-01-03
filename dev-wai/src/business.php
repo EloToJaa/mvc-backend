@@ -116,6 +116,29 @@ function get_images() {
     return $db->images->find()->toArray();
 }
 
+function get_user($login) {
+    $db = get_db();
+
+    $users = $db->users->find(['login' => $login])->toArray();
+
+    if(count($users) == 0) return null;
+    return $users[0];
+}
+
+function user_exists($login) {
+    return get_user($login) !== null;
+}
+
+function add_user($user, $id = null) {
+    $db = get_db();
+
+    if ($id == null) {
+        $db->users->insertOne($user);
+    }
+    else {
+        $db->users->replaceOne(['_id' => new ObjectID($id)], $user);
+    }
+}
 
 /*
 function get_products()

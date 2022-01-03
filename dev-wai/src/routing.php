@@ -12,5 +12,6 @@ $routing = [
     '/login' => 'login',
     '/register' => 'register',
     '/logout' => 'logout',
+    '/logged_in' => 'logged_in',
     '/upload' => 'upload'
 ];
