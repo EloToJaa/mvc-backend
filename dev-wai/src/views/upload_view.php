@@ -9,7 +9,7 @@
         <h1>Dodawanie zdjęcia</h1>
         <hr><br>
 
-        <form action="/upload" method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
             <label for="fileToUpload"><span style="color:red">*</span> Wybierz zdjęcie:</label>
             <br><input type="file" name="fileToUpload" id="fileToUpload" required><br>
 

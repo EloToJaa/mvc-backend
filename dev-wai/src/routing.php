@@ -11,5 +11,6 @@ $routing = [
     '/gallery' => 'gallery',
     '/login' => 'login',
     '/register' => 'register',
+    '/logout' => 'logout',
     '/upload' => 'upload'
 ];

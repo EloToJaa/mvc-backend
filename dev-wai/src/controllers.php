@@ -77,3 +77,18 @@ function gallery(&$model) {
 
     return 'gallery_view';
 }
+
+function login(&$model) {
+    $model['title'] = 'Logowanie';
+    return 'login_view';
+}
+
+function register(&$model) {
+    $model['title'] = 'Rejestracja';
+    return 'register_view';
+}
+
+function logout(&$model) {
+    $model['title'] = 'Wylogowanie';
+    return 'logout_view';
+}
