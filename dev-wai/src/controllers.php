@@ -27,6 +27,7 @@ function upload(&$model) {
     if(isset($_FILES["fileToUpload"]["name"])) {
         upload_file();
     }
+    $model['messages'] = get_messages();
     return 'upload_view';
 }
 

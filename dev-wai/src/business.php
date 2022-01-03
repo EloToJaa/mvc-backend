@@ -2,21 +2,17 @@
 
 use MongoDB\BSON\ObjectID;
 
-function alert($message) {
-    echo '<script>console.log("' . $message . '");</script>';
-}
-
-function png_to_jpg($filePath) {
-    $image = imagecreatefrompng($filePath);
-    $bg = imagecreatetruecolor(imagesx($image), imagesy($image));
-    imagefill($bg, 0, 0, imagecolorallocate($bg, 255, 255, 255));
-    imagealphablending($bg, TRUE);
-    imagecopy($bg, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
-    imagedestroy($image);
-    $quality = 100;
-    imagejpeg($bg, $filePath . ".jpg", $quality);
-    imagedestroy($bg);
-}
+// function png_to_jpg($filePath) {
+//     $image = imagecreatefrompng($filePath);
+//     $bg = imagecreatetruecolor(imagesx($image), imagesy($image));
+//     imagefill($bg, 0, 0, imagecolorallocate($bg, 255, 255, 255));
+//     imagealphablending($bg, TRUE);
+//     imagecopy($bg, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
+//     imagedestroy($image);
+//     $quality = 100;
+//     imagejpeg($bg, $filePath . ".jpg", $quality);
+//     imagedestroy($bg);
+// }
 
 function create_thumbnail($file_path, $thumb_file, $width, $height, $file_type) {
     $original_info = getimagesize($file_path);

@@ -1,5 +1,22 @@
 <?php
 
+$msg = [];
+
+function get_messages() {
+    global $msg;
+    $msg_cp = $msg;
+    $msg = [];
+    return $msg_cp;
+}
+
+function alert($message, $success = false) {
+    echo '<script>console.log("' . $message . '");</script>';
+    $msg[] = [
+        'content' => $message,
+        'success' => $success
+    ];
+}
+
 function upload_file() {
     $upload_result = 1;
     $target_file = basename($_FILES["fileToUpload"]["name"]);
@@ -9,11 +26,10 @@ function upload_file() {
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
         if($check !== false) {
-            alert("Ten plik jest zdjęciem - " . $check["mime"]);
             $upload_result = 1;
         }
         else {
-            alert("Ten plik nie jest zdjęciem");
+            alert("Załączony plik nie jest zdjęciem");
             $upload_result = 0;
         }
     }
@@ -24,7 +40,7 @@ function upload_file() {
         $upload_result = 0;
     }
 
-    // Check file extension
+    // Check file type
     if($image_file_type != "jpg" && $image_file_type != "png") {
         alert("Niepoprawne rozszerzenie pliku");
         $upload_result = 0;
@@ -35,7 +51,7 @@ function upload_file() {
     }
     else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            alert("Plik " . htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])) . " został wysłany");
+            alert("Plik " . htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])) . " został pomyślnie wysłany", true);
 
             convert_image($target_file, 3, "Testowanie");
         }
