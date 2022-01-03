@@ -204,6 +204,8 @@ function logged_in(&$model)
     $logged = $_SESSION['user_id'] !== null;
     if ($logged) {
         $model['title'] = 'Zalogowany';
+        $user = get_user_by_id($_SESSION['user_id']);
+        $model['user'] = $user;
         return 'logged_in_view';
     } else {
         $model['title'] = 'Nie zalogowany';

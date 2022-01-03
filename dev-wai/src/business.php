@@ -125,6 +125,15 @@ function get_user($login) {
     return $users[0];
 }
 
+function get_user_by_id($id) {
+    $db = get_db();
+
+    $users = $db->users->find(['_id' => $id])->toArray();
+
+    if(count($users) == 0) return null;
+    return $users[0];
+}
+
 function user_exists($login) {
     return get_user($login) !== null;
 }
