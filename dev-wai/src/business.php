@@ -89,7 +89,8 @@ function get_db() {
     );
     
     $db = $mongo->wai;
-    // $db->images->deleteOne(['file_name' => '1.jpg']);
+
+    // for($i=1; $i<=100; $i++) $db->images->deleteOne(['file_name' => $i . '.jpg']);
 
     return $db;
 }

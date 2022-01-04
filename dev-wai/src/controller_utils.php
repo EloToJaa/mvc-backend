@@ -85,14 +85,11 @@ function get_page(&$model) {
 function paging(&$model, $images, $items_on_page) {
     $page = $model['current_page'];
 
-    $number_of_img = count($images);
-
     $start_img = ($page - 1) * $items_on_page;
     $end_img = min($start_img + $items_on_page, count($images));
 
     $model['images'] = [];
     for ($i = $start_img; $i < $end_img; $i++) {
-        // $images[$i]['img_id'] = $i + 1;
         array_push($model['images'], $images[$i]);
     }
 }

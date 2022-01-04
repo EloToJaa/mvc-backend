@@ -38,7 +38,7 @@ function upload(&$model) {
         'title' => $_POST['title'],
         'author' => $_POST['author'],
         'file_name' => $file_name,
-        'img_id' => (get_img_id() - 1)
+        'img_id' => get_img_id()
     ];
 
     add_image($image);
@@ -52,7 +52,7 @@ function gallery(&$model) {
     $items_on_page = 8;
 
     $images = get_images();
-    $model['pages'] = count($images) / $items_on_page + 1;
+    $model['pages'] = (count($images) - 1) / $items_on_page + 1;
 
     get_page($model);
 
@@ -71,7 +71,7 @@ function collection(&$model) {
     $items_on_page = 8;
 
     $images = $_SESSION['images'];
-    $model['pages'] = count($images) / $items_on_page + 1;
+    $model['pages'] = (count($images) - 1) / $items_on_page + 1;
 
     get_page($model);
 
@@ -88,8 +88,13 @@ function collection_add(&$model) {
         $images = get_images();
         for($i = 1; $i <= count($images); $i++) {
             $image = $images[$i - 1];
-            if(isset($_POST['check_' . $i]) && $_POST['check_' . $i] === 'Yes') {
-                array_push($_SESSION['images'], $image);
+            if(isset($_POST['check_' . $i])) {
+                if(in_array($image, $_SESSION['images'])) {
+                    alert('Obraz jest już zapisany');
+                }
+                else {
+                    array_push($_SESSION['images'], $image);
+                }
             }
         }
     }
@@ -104,10 +109,11 @@ function collection_del(&$model) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $images = [];
         foreach($_SESSION['images'] as $image) {
-            if($_POST['check_' . $image['img_id']] !== 'Yes') {
+            if(!isset($_POST['check_' . $image['img_id']])) {
                 array_push($images, $image);
             }
         }
+        $_SESSION['images'] = $images;
     }
 
     return 'redirect:collection';
@@ -216,10 +222,11 @@ function register(&$model) {
 function logout(&$model) {
     $model['title'] = 'Wylogowanie';
     if (is_logged_in()) {
-        session_unset();
-        session_destroy();
-        session_start();
-        $_SESSION['images'] = [];
+        unset($_SESSION['user_id']);
+        // session_unset();
+        // session_destroy();
+        // session_start();
+        // $_SESSION['images'] = [];
     }
     return 'redirect:logged_in';
 }

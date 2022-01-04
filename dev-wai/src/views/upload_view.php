@@ -28,6 +28,7 @@
             <?php include "partial/messages.php"; ?>
         </form>
 
+        <a href="/gallery"><input id="helpBtn" type="submit" value="Galeria"></a>
     </section>
     <?php include "includes/footer.inc.php"; ?>
 </body>

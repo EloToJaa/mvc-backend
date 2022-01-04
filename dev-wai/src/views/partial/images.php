@@ -11,6 +11,8 @@
                 <div class="desc">
                     <b>Tytuł:</b> <?= $image['title'] ?> <br>
                     <b>Autor:</b> <?= $image['author'] ?> <br>
+                    <b>Id:</b> <?= $image['img_id'] ?> <br>
+                    <b>Nazwa:</b> <?= $image['file_name'] ?> <br>
                     <b>Wybierz: </b> <input type="checkbox" name="check_<?= $image['img_id'] ?>">
                 </div>
             </div>
@@ -29,3 +31,4 @@
 <br><br>
 
 <a href="/upload"><input id="helpBtn" type="submit" value="Dodaj zdjęcie"></a>
+<a href="/collection"><input id="helpBtn" type="submit" value="Zapamiętane"></a>
