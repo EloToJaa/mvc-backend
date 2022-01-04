@@ -11,7 +11,6 @@
 
         <h2>Dane użytkownika</h2><br>
 
-        <b>Id:</b> <?= $user['_id'] ?> <br>
         <b>Email:</b> <?= $user['email'] ?> <br>
         <b>Login:</b> <?= $user['login'] ?> <br><br>
 

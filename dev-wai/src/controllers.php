@@ -25,6 +25,15 @@ function bug(&$model) {
 
 function upload(&$model) {
     $model['title'] = 'Dodaj zdjęcie';
+
+    if (is_logged_in()) {
+        $user = get_user_by_id($_SESSION['user_id']);
+        $model['author'] = $user['login'];
+    }
+    else {
+        $model['author'] = '';
+    }
+
     if (isset($_FILES['fileToUpload']['name'])) {
         $file_name = upload_file($_POST['watermark']);
     }

@@ -14,7 +14,7 @@
             <br><input type="file" name="fileToUpload" id="fileToUpload" required><br>
 
             <label for="author"><span style="color:red">*</span> Autor:</label>
-            <input type="text" id="author" name="author" value="" required>
+            <input type="text" id="author" name="author" value="<?= $author ?>" required>
 
             <label for="title"><span style="color:red">*</span> Tytuł:</label>
             <input type="text" id="title" name="title" value="" required>
