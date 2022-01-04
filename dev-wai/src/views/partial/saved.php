@@ -11,7 +11,7 @@
                 <div class="desc">
                     <b>Tytuł:</b> <?= $image['title'] ?> <br>
                     <b>Autor:</b> <?= $image['author'] ?> <br>
-                    <b>Wybierz: </b> <input type="checkbox" name="checkbox_<?= $image['img_id'] ?>">
+                    <b>Wybierz: </b> <input type="checkbox" name="check_<?= $image['img_id'] ?>">
                 </div>
             </div>
         </div>

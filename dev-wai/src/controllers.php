@@ -84,11 +84,13 @@ function collection_add(&$model) {
     $model['title'] = 'Kolekcja';
 
     // Adding to collection
-    $images = get_images();
-    for($i = 0; $i < count($images); $i++) {
-        $image = $images[$i];
-        if(isset($_GET['check_' . $i])) {
-            array_push($_SESSION['images'], $image);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $images = get_images();
+        for($i = 1; $i <= count($images); $i++) {
+            $image = $images[$i - 1];
+            if(isset($_POST['check_' . $i]) && $_POST['check_' . $i] === 'Yes') {
+                array_push($_SESSION['images'], $image);
+            }
         }
     }
 
@@ -99,10 +101,12 @@ function collection_del(&$model) {
     $model['title'] = 'Kolekcja';
 
     // Removing from collection 
-    $images = [];
-    foreach($_SESSION['images'] as $image) {
-        if(!isset($_GET['check_' . $image['img_id']])) {
-            array_push($images, $image);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $images = [];
+        foreach($_SESSION['images'] as $image) {
+            if($_POST['check_' . $image['img_id']] !== 'Yes') {
+                array_push($images, $image);
+            }
         }
     }
 
